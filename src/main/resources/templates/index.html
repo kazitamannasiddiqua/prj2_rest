@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head >
+    <meta charset="UTF-8">
+    <title>Arjun's own GitHUb</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
+    <img class="w-full" src="/img/card-top.jpg" th:src="${userDetails.getAvatar_url()}" alt="Sunset in the mountains">
+    <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2" th:text="${userDetails.getName()}">The Coldest Sunset</div>
+        <p class="text-gray-700 text-base">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+    </div>
+    <div class="px-6 py-4">
+        <span  th:text="${userDetails.getId()}" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
+        <span th:text="${userDetails.getNode_id()}"class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#travel</span>
+        <span th:text="${userDetails.getLogin()}"class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#winter</span>
+    </div>
+</div>
+
+</body>
+</html>
