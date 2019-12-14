@@ -9,20 +9,21 @@ pipeline{
                                         pollSCM("* * * * *")
                                             }
                                                 stages {
-                                                    stage('compile'){
+                                                            stage('compile'){
                                                             steps{
-                                                                        sh 'mvn clean compile'
-                                                                                }
-                                                                                    }
-                                                                                        stage('package') {
-                                                                                                steps{
-                                                                                                            sh "mvn package"
-                                                                                                                    }
-                                                                                                                        }
-                                                                                                                          }  post {
-                                                                                                                                    success {
-                                                                                                                                                sh "echo HURRAY"
-                                                                                                                                                        }
-                                                                                                                                                            }
-                                                                                                                                                       
-                                                                                                                                                           }
+                                                                   sh 'mvn clean compile'
+                                                                 }
+                                                             }
+                                                             stage('package') {
+                                                             steps{
+                                                                   sh "mvn package"
+                                                                   }
+                                                             }
+                                                 } 
+						 post {
+                                                             success {
+                                                             sh "echo HURRAY"
+                                                             }
+                                                 }
+                                                                                                                               
+}	 
