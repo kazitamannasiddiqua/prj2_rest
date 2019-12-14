@@ -2,10 +2,10 @@ pipeline{
     agent any
         tools {
                 maven "m3"
-                        jdk "JDK3"
+                        jdk "JDK8"
 
                             }
-                                trigger {
+                                triggers {
                                         pollSCM("* * * * *")
                                             }
                                                 stages {
@@ -14,15 +14,16 @@ pipeline{
                                                                         sh 'mvn clean compile'
                                                                                 }
                                                                                     }
-                                                                                        stage {
+                                                                                        stage('package') {
                                                                                                 steps{
                                                                                                             sh "mvn package"
                                                                                                                     }
                                                                                                                         }
+                                                                                                                            }
                                                                                                                             post {
                                                                                                                                     success {
                                                                                                                                                 sh "echo HURRAY"
                                                                                                                                                         }
                                                                                                                                                             }
                                                                                                                                                             }
-                                                                                                                                                            }
+                                                                                                                                                            
